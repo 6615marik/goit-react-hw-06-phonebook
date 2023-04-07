@@ -1,12 +1,20 @@
 import { addContact } from 'redux/slice';
 // import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 export const Form = () => {
+  const contacts = useSelector(state => state.contacts.contacts);
+  const tel = contacts.map(contact => contact.number);
+  // console.log(tel);
   const dispatch = useDispatch();
   const formSubmit = e => {
     e.preventDefault();
     const form = e.target;
+    if (tel.includes(form.elements.number.value)) {
+      alert('This number is already recorded');
+      form.reset();
+      return;
+    }
     dispatch(
       addContact({
         name: form.elements.name.value,

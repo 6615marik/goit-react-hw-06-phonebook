@@ -3,7 +3,7 @@ import { setContactFilter } from 'redux/slice';
 import { useSelector } from 'react-redux';
 export const Filtr = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.filter.filter);
   // console.log(filter);
   const filtrValue = e => {
     console.log(e.target.value);

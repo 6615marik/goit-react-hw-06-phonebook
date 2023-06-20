@@ -1,19 +1,19 @@
-import { addContact } from 'redux/slice';
-// import PropTypes from 'prop-types';
+import { addContact } from 'redux/contactsSlice';
+
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { selectContacts } from 'redux/selectors';
 export const Form = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
-  const tel = contacts.map(contact => contact.number);
-  // const tel = contacts.find(contact => contact.number);
-  console.log(tel);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const formSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.elements.number.value);
-    if (tel.includes(form.elements.number.value)) {
-      // if (tel.includes(form.elements.number.value)) {
+    const telFind = form.elements.number.value.toLowerCase();
+    const findContacts = contacts.find(
+      contact => contact.name.toLowerCase() === telFind
+    );
+    if (findContacts) {
       alert('This number is already recorded');
       form.reset();
       return;

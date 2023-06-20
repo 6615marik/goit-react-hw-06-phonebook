@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { setContactFilter } from 'redux/slice';
+import { setContactFilter } from 'redux/filterSlice';
 import { useSelector } from 'react-redux';
+import { selectFilter } from 'redux/selectors';
 export const Filtr = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter.filter);
+  const filter = useSelector(selectFilter);
   // console.log(filter);
   const filtrValue = e => {
     console.log(e.target.value);

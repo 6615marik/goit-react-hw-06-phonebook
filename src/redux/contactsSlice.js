@@ -41,17 +41,3 @@ const contactsSlice = createSlice({
 export const { addContact, deleteContact } = contactsSlice.actions;
 // Редюсер слайсу
 export const contactsReducer = contactsSlice.reducer;
-
-const filtersSlice = createSlice({
-  name: 'filter',
-  initialState: { filter: '' },
-  reducers: {
-    setContactFilter(state, action) {
-      state.filter = action.payload;
-    },
-  },
-});
-
-// Експортуємо генератори екшенів та редюсер
-export const { setContactFilter } = filtersSlice.actions;
-export const filtersReducer = filtersSlice.reducer;

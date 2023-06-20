@@ -5,12 +5,15 @@ import { useSelector } from 'react-redux';
 export const Form = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const tel = contacts.map(contact => contact.number);
-  // console.log(tel);
+  // const tel = contacts.find(contact => contact.number);
+  console.log(tel);
   const dispatch = useDispatch();
   const formSubmit = e => {
     e.preventDefault();
     const form = e.target;
+    console.log(form.elements.number.value);
     if (tel.includes(form.elements.number.value)) {
+      // if (tel.includes(form.elements.number.value)) {
       alert('This number is already recorded');
       form.reset();
       return;

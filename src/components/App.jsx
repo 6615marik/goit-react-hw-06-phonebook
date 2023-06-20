@@ -1,9 +1,6 @@
-// import React, { useState, useEffect } from 'react';
 import { Form } from './Form/Form';
-import { Contacts } from './Form/Contacts';
-import { Filtr } from './Form/Filtr';
-// import Notiflix from 'notiflix';
-// import { nanoid } from 'nanoid';
+import { Contacts } from './Contacts';
+import { Filtr } from './Filtr';
 
 export const App = () => {
   return (
